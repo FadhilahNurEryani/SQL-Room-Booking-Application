@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <title>404 Page Not Found</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="navcontainer">
+        <nav>
+            <div class="nav-logo" onclick="homeRedir()">
+                <i class="ri-database-2-fill"></i>
+                <h2 id="rbac">RBAC</h2>
+            </div>
+        </nav>
+    </div>
+    <div class="errormsg">
+        <h1>404</h1>
+        <h3>Page Not Found</h3>
+        <h2>We searched through all our rooms but couldn't find the page you were looking for</h2>
+        <button onclick="homeRedir()">Go Back Home</button>
+    </div>
+</body>
+
+</html>

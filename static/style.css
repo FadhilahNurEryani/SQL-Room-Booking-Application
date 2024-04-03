@@ -1,0 +1,1117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Font Sizes */
+    --largest-font: 112px;
+    --larger-font: 70px;
+    --large-font: 34px;
+    --text-large-font: 20px;
+    --text-font: 16px;
+
+    /* Font Colours */
+    --text-color: #000;
+    --hover-color: #fff;
+    --dark-color: #000;
+    --bg-color: #ffff;
+    --nav-hover-color: #0065b9;
+    --secondary-color: #0065b9;
+    --search-bar-color: #ffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+}
+
+
+/* Scroll Top Button*/
+
+#scrollTop {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    transform: translate(90vw, 90vh);
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.5s;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#scrollTop i {
+    background: var(--secondary-color);
+    font-size: 1.5em;
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--bg-color);
+    transition: all 0.5s;
+}
+
+#scrollTop i:hover {
+    background-color: var(--hover-color);
+    color: var(--secondary-color);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+/* Scroll Top Button*/
+
+
+/* Navbar Section */
+
+.navcontainer {
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.navcontainer nav {
+    justify-content: center;
+    padding-right: 0;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+}
+
+.nav-logo {
+    position: absolute;
+    left: 0px;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-logo i {
+    font-size: 1.5em;
+    margin: 1em;
+    color: var(--dark-color);
+}
+
+.nav-logo h2 {
+    font-family: "Poppins";
+    font-size: 20px;
+    padding: 0px;
+    margin: 20px;
+    top: 0;
+    cursor: pointer;
+    left: 40px;
+    color: var(--dark-color);
+    position: absolute;
+
+}
+
+.nav-menu {
+    width: 260px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 16px;
+    background: var(--bg-color);
+    z-index: 1000;
+    position: fixed;
+    right: -260px;
+    transition: right 0.5s ease;
+}
+
+.bottomitems {
+    margin-top: 13rem;
+}
+
+.nav-menu.open {
+    right: 0;
+}
+
+.nav-menu ul {
+    margin-top: 30px;
+}
+
+.nav-menu ul li {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.nav-menu ul li:nth-child(1) {
+    padding-top: 40px;
+}
+
+.nav-link {
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-color);
+    font-family: "Poppins";
+    font-size: var(--text-large-font);
+    font-weight: 400;
+    margin: 8px 0;
+    padding: 14px 12px;
+    border-radius: 8px;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--secondary-color);
+}
+
+
+.nav-close {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    font-size: 1.5em;
+    top: 18px;
+    right: 32px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.nav-toggle {
+    display: inline-flex;
+    visibility: visible;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    margin: 1em;
+    font-size: 1.5em;
+    font-weight: 600;
+    transition: all 0.5s;
+}
+
+.nav-toggle:hover{
+    color: var(--nav-hover-color);
+}
+
+.nav-close:hover{
+    color: var(--secondary-color);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 1000vh;
+    width: 200%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.change-header {
+    background: var(--secondary-color);
+}
+
+
+
+/* Navbar Section */
+
+/* Login & Register Section */
+
+.login {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    font-family: "Poppins";
+}
+
+
+.loginform h1 {
+    text-align: center;
+    font-size: var(--large-font);
+}
+
+.loginform .form-control {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: #000 solid 1.7px;
+    outline: none;
+}
+
+.help-block {
+    display: block;
+    font-size: 14px;
+    color: #737373;
+}
+
+.has-error .control-label {
+    color: #a94442;
+}
+
+.has-error .form-control {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.has-error .help-block {
+    color: #a94442;
+}
+
+.loginform .control-label {
+    margin-left: 15px;
+}
+
+#dob {
+    cursor: pointer;
+}
+
+#role {
+    cursor: pointer;
+}
+
+.loginform .checkbox {
+    margin-bottom: 15px;
+}
+
+#remember {
+    cursor: pointer;
+}
+
+.login a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.signin {
+    width: 100%;
+    font-family: "Poppins";
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    transition: all 0.5s;
+    margin-bottom: 10px;
+}
+
+.signin i {
+    margin-left: 7px;
+}
+
+.signin:hover {
+    background-color: var(--bg-color);
+    color: #000;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.pword {
+    display: flex;
+}
+
+.ri-eye-off-line {
+    cursor: pointer;
+}
+
+/* Login & Register Section */
+
+
+/* Dashboard Section */
+
+.dashhome{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header {
+    margin-left: 40px;
+}
+
+.header h1 {
+    font-family: "Poppins";
+    font-size: 30px;
+}
+
+.dashbox p{
+    margin-top: 30px;
+    font-size: var(--text-large-font);
+}
+
+.dashbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dash-header{
+    display: flex;
+    font-family: "Poppins";
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.dash-header h1{
+    margin-left: 40px;
+}
+
+.dashbox {
+    overflow: auto; 
+    max-height: 400px; 
+    font-family: "Poppins";
+}
+
+.dashbox table{
+    text-align: center;
+    width: 95%;
+    border-radius: 20px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);    
+    transform: translateY(20px);
+}
+
+.dashbox table thead{
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+.rooms .dashbox, th, td{
+    padding: 1rem;
+}
+
+.dashbox table th{
+    background-color: #fff;
+    top: 0;
+    left: 0;
+}
+
+.dashbox table tr:nth-child(even){
+    background-color: #f4f6fb;
+}
+
+
+.one {
+    width: 600px;
+    height: 300px;
+    margin-left: 40px;
+}
+
+
+.two {
+    width: 500px;
+    height: 300px;
+}
+
+/* Dashboard Section */
+
+/* Booking Section */
+
+.locations {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Poppins";
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.15);
+    border-radius: 20px;
+}
+
+.locations>input {
+    display: none;
+}
+
+.locations>input:checked+label {
+    color: #fff;
+}
+
+.locations>input:nth-of-type(1):checked~label:last-of-type:before {
+    transform: translateX(calc(0% + 0px));
+    background-color: green;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.locations>input:nth-of-type(2):checked~label:last-of-type:before {
+    transform: translateX(calc(100% + 0px));
+    background-color: var(--secondary-color);
+}
+
+.locations>input:nth-of-type(3):checked~label:last-of-type:before {
+    transform: translateX(calc(200% + 0px));
+    background-color: orange;
+}
+
+.locations>input:nth-of-type(4):checked~label:last-of-type:before {
+    transform: translateX(calc(300% + 0px));
+    background-color: #000;
+}
+
+.locations>input:nth-of-type(5):checked~label:last-of-type:before {
+    transform: translateX(calc(400% + 0px));
+    background-color: red;
+}
+
+.locations>input:nth-of-type(6):checked~label:last-of-type:before {
+    transform: translateX(calc(500% + 0px));
+    background-color: rgb(170, 73, 170);
+}
+
+.locations>input:nth-of-type(7):checked~label:last-of-type:before {
+    transform: translateX(calc(600% + 0px));
+    background-color: rgb(7, 151, 199);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.locations label {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.locations label:hover {
+    color: var(--secondary-color);
+}
+
+.locations label:last-of-type:before {
+    content: "";
+    display: block;
+    max-width: calc(14.285714285% - 0px);
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateX(0);
+}
+
+.locations label {
+    padding: 15px 3px;
+    transition: color 250ms cubic-bezier(0, 0.95, 0.38, 0.98);
+}
+
+.locations label:before {
+    background: var(--secondary-color);
+    transition: all 250ms cubic-bezier(0, 0.95, 0.38, 0.98);
+}
+
+.rooms{
+    position: relative;
+    padding-bottom: 50px;
+    font-family: "Poppins";
+}
+
+
+.tablecontainer {
+    overflow: auto; 
+    max-height: 400px; 
+}
+
+.tablefilters {
+    position: relative;
+}
+
+.rooms table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 70px;
+    border-radius: 20px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);    
+    transform: translateY(20px);
+}
+
+.rooms table, th, td{
+    padding: 1rem;
+}
+
+.rooms table thead{
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+.rooms table th{
+    background-color: #fff;
+    top: 0;
+    left: 0;
+}
+
+.ri-arrow-down-fill:hover,.ri-arrow-up-fill:hover{
+    color: var(--secondary-color);
+    transition: all 0.4s;
+}
+
+.rooms table tr:nth-child(even){
+    background-color: #f4f6fb;
+}
+
+#tableloc{
+    border-top-left-radius: 20px;
+}
+
+#tabletype{
+    border-top-right-radius: 20px;
+}
+
+#desksort a{
+    text-decoration: none;
+    color: #000;
+}
+
+#bookbutton a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+
+.rooms table thead i{
+    color: var(--dark-color);
+    cursor: pointer;
+}
+
+.ri-check-line{
+    color: rgb(0, 252, 63);
+    font-size: 1.5em;
+}
+
+.rooms table tr .ri-close-line{
+    color: red;
+    font-size: 1.5em;
+}
+
+#search-container {
+    position: absolute;
+    user-select: none;
+    top: -50px; 
+    left: 53%; 
+    transform: translateX(-50%);
+}
+
+#searchbar {
+    font-family: "Poppins";
+    width: 350px;
+    transition: visibility 0.5s, width 0.5s;
+    background: var(--search-bar-color);
+    padding: 6px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 17px;
+}
+
+
+.ri-search-2-line {
+    visibility: visible;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+
+
+/* Booking Section */
+
+/* Booking Template Section */
+
+.bookingheader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins";
+    align-items: center;
+}
+
+.bookingcont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins";
+    align-items: center;
+    margin-top: 50px;  
+    margin-bottom: 50px;
+}
+
+.bookingform{
+    text-align: center;
+}
+
+.bookingcont #submit{
+    width: 200px;
+    font-family: "Poppins";
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--secondary-color);
+    transition: all 0.5s;
+}
+
+.bookingcont #submit:hover{
+    background-color: var(--bg-color);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    color: var(--secondary-color);
+}
+
+.bookingcont #date{
+    border-radius: 20px;
+    width: 200px;
+    outline: none;
+    padding: 5px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.bookingcont .required{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.bookingcont p{
+    margin-bottom: 10px;
+}
+
+.bookingcont .checkbox input{
+    display: none;
+}
+
+.bookingcont .checkbox label{
+    transition: all 0.5s;
+    margin-bottom: 10px;
+}
+
+.bookingcont .checkbox:hover label{
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.labelclass.checked{
+    background-color: var(--secondary-color); 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    scale: 1.05;
+}
+
+.flashedmsg{
+    margin-top: 10px;
+    color: #a94442;
+}
+
+
+
+/* Booking Template Section */
+
+
+/* My Bookings Page Section */
+
+.bookingcategories {
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+    position: relative;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Poppins";
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.15);
+    border-radius: 20px;
+}
+
+.bookingcategories>input {
+    display: none;
+}
+
+.bookingcategories>input:checked+label {
+    color: #fff;
+}
+
+.bookingcategories>input:nth-of-type(1):checked~label:last-of-type:before {
+    transform: translateX(calc(0% + 0px));
+    background-color: var(--secondary-color);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.bookingcategories>input:nth-of-type(2):checked~label:last-of-type:before {
+    transform: translateX(calc(100% + 0px));
+    background-color: #000;
+}
+
+.bookingcategories>input:nth-of-type(3):checked~label:last-of-type:before {
+    transform: translateX(calc(200% + 0px));
+    background-color: #d10704;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.bookingcategories label {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.bookingcategories label:hover {
+    color: var(--secondary-color);
+}
+
+.bookingcategories label:last-of-type:before {
+    content: "";
+    display: block;
+    max-width: calc(33.3333333333% - 0px);
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateX(0);
+}
+
+.bookingcategories label {
+    padding: 15px 3px;
+    transition: color 250ms cubic-bezier(0, 0.95, 0.38, 0.98);
+}
+
+.bookingcategories label:before {
+    background: var(--secondary-color);
+    transition: all 250ms cubic-bezier(0, 0.95, 0.38, 0.98);
+}
+
+.userbookings{
+    position: relative;
+    padding-bottom: 50px;
+    font-family: "Poppins";
+}
+
+
+.userbookings table{
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    margin-top: 70px;
+    border-radius: 20px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);    
+}
+
+.userbookings table, th, td{
+    padding: 1rem;
+}
+
+.userbookings table thead{
+    box-shadow: 0 5px 10px #e1e5ee;
+}
+
+.userbookings table th{
+    background-color: #fff;
+    top: 0;
+    left: 0;
+}
+
+.ri-arrow-down-fill:hover,.ri-arrow-up-fill:hover{
+    color: var(--secondary-color);
+    transition: all 0.4s;
+}
+
+.userbookings table tr:nth-child(even){
+    background-color: #f4f6fb;
+}
+
+.ri-delete-bin-6-line{
+    color: red;
+    transition: all 0.5s;
+}
+
+.ri-delete-bin-6-line:hover{
+    color: rgb(168, 0, 0);
+}
+
+.ri-calendar-schedule-line{
+    color: var(--secondary-color);
+    transition: all 0.5s;  
+}
+
+.ri-calendar-schedule-line:hover{
+    color: #000;
+}
+
+
+#deletebooking a{
+    text-decoration: none;
+}
+
+#rebooking a{
+    text-decoration: none;
+}
+
+.deletemsg{
+    text-align: center;
+    margin-top: 40px;
+    color: #a94442;
+    font-size: var(--text-large-font);
+}
+
+
+/* My Bookings Page Section */
+
+/* Settings Page Section */
+
+.settings {
+    font-family: "Poppins";
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.settings h1 {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.settings h2{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+
+.generalform {
+    margin-left: 35px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.inputcont{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+}
+
+.savebutton{
+    width: 100px;
+    text-align: center;
+    margin-left: 35px;
+    margin-top: 25px;
+}
+
+#submit{
+    padding: 10px;
+    width: 150px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: "Poppins";
+    cursor: pointer;
+    border-style: none;
+    background-color: var(--secondary-color);
+    transition: all 0.5s;
+}
+
+#submit:hover{
+    color: var(--secondary-color);
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.generalform label{
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.generalform input,
+.generalform select {
+    padding: 10px;
+    width: 300px;
+    font-family: "Poppins";
+    border-style: none;
+    outline: none;
+    border-radius: 10px;
+    margin-top: 5px; 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.15);
+}
+
+#dob,#role{
+    background-color: #f9f9f9;
+}
+
+.errors li{
+    margin-top: 20px;
+    margin-left: 40px;
+    color: #a94442;
+    list-style: none;
+}
+
+.usermsg{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.hide{
+    transform: translate(-28px,15px);
+}
+
+.deletehead{
+    color: #d10704;
+}
+
+
+#deleteaccount{
+    padding: 10px;
+    width: 150px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: "Poppins";
+    cursor: pointer;
+    border-style: none;
+    background-color: #d10704;
+    transition: all 0.5s;
+}
+
+#deleteaccount:hover{
+    color: #d10704;
+    background-color: #fff;
+    border: #d10704 1px solid;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+
+
+
+
+/* Settings Page Section */
+
+
+/* 404 Error Page Section */
+
+.errormsg {
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    font-family: "Poppins";
+    transform: translateY(-20px);
+}
+
+.errormsg h1 {
+    font-size: 150px;
+    color: var(--secondary-color);
+}
+
+.errormsg h3 {
+    font-size: 40px;
+    border-bottom: 10px;
+}
+
+.errormsg button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: var(--text-font);
+    font-family: "Poppins";
+    font-weight: 600;
+    color: var(--bg-color);
+    background-color: var(--secondary-color);
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.errormsg button:hover {
+    background-color: var(--bg-color);
+    color: var(--secondary-color);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+/* 404 Error Page Section */
+
+
+
+/* Animation Section */
+
+[data-inViewport='slideTop'] {
+    transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4em);
+    transition-delay: 0.2s;
+}
+
+[data-inViewport='slideTop'].is-inViewport {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0em);
+}
+
+[data-inViewport='slideLeft'] {
+    transition: 1.5s cubic-bezier(0.4, 1, 0.22, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-4em);
+    transition-delay: 0.2s;
+}
+
+[data-inViewport='slideLeft'].is-inViewport {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0em);
+}
+
+[data-inViewport='slideRight'] {
+    transition: 0.6s cubic-bezier(0.4, 1, 0.22, 1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(4em);
+    transition-delay: 0.2s;
+}
+
+[data-inViewport='slideRight'].is-inViewport {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0em);
+}
+
+/* Animation Section */

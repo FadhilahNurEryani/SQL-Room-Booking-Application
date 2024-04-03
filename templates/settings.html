@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{%import "bootstrap/wtf.html" as wtf%}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Settings</title>
+</head>
+
+
+<body>
+    <div id="scrollTop" onclick='scrollToTop()'>
+        <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <div class="navcontainer">
+
+        <nav>
+            <div class="nav-logo" onclick="homeRedir()">
+                <i class="ri-database-2-fill"></i>
+                <h2 id="rbac">RBAC</h2>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-dashboard-line"></i>
+                            <span class="link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/booking" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-calendar-line"></i>
+                            <span class="link">Book Now</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mybookings" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-user-line"></i>
+                            <span class="link">My Bookings</span>
+                        </a>
+                    </li>
+                    <div class="bottomitems">
+                        <li>
+                            <a href="/settings" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-settings-5-line"></i>
+                                <span class="link">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-logout-box-line"></i>
+                                <span class="link">Logout</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="nav-close" id="nav-close" onclick="hideNav()">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle" onclick="showNav()">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </div>
+
+    <div class="settings">
+        <h1>User: {{ username }} | Account Settings</h1>
+        <h2>General Settings</h2>
+
+        <form method="POST" action="/settings">
+            <div class="generalform">
+                {{form.hidden_tag()}}
+
+                <div class="inputcont">
+                    {{form.username.label}}
+                    {{form.username(value=current_user.username)}}
+                </div>
+
+                <div class="inputcont">
+                    {{form.dob.label}}
+                    {{form.dob(value=current_user.dob)}}
+                </div>
+
+                <div class="inputcont">
+                    {{form.role.label}}
+                    {{form.role(value=current_user.role)}}
+                </div>
+            </div>
+            <div class="savebutton">
+                {{form.submit}}
+            </div>
+        </form>
+
+        {% if form.username.errors %}
+        <ul class="errors">
+            {% for error in form.username.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p class="usermsg">{{ msg }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+
+
+        <h2>Password Settings</h2>
+
+        <form method="POST" action="/settings">
+            <div class="generalform">
+                {{form.hidden_tag()}}
+
+                <div class="inputcont">
+                    {{pform.oldpassword.label}}
+                    <div class="pword">{{pform.oldpassword}}<i class="ri-eye-off-line oldpasswordtoggle hide"></i></div>
+                </div>
+
+                <div class="inputcont">
+                    {{pform.newpassword.label}}
+                    <div class="pword">{{pform.newpassword}}<i class="ri-eye-off-line newpasswordtoggle hide"></i></div>
+                </div>
+
+                <div class="inputcont">
+                    {{pform.confirm.label}}
+                    <div class="pword">{{pform.confirm}}<i class="ri-eye-off-line confirmtoggle hide"></i></div>
+                </div>
+            </div>
+            <div class="savebutton">
+                {{pform.submit}}
+            </div>
+        </form>
+        
+        
+        {% if pform.oldpassword.errors %}
+        <ul class="errors">
+            {% for error in pform.oldpassword.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if pform.newpassword.errors %}
+        <ul class="errors">
+            {% for error in pform.newpassword.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if pform.confirm.errors %}
+        <ul class="errors">
+            {% for error in pform.confirm.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p class="usermsg">{{ msg }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+        <h2 class="deletehead">Delete Account</h2>
+
+        <form method="POST" action="/settings">
+            <div class="generalform">
+                {{form.hidden_tag()}}
+
+                <div class="inputcont">
+                    {{delform.delpassword.label}}
+                    <div class="pword">{{delform.delpassword}}<i class="ri-eye-off-line delpasswordtoggle hide"></i></div>
+                </div>
+            </div>
+            <div class="savebutton" >
+                {{delform.deleteaccount(onclick="return confirm('Are you sure you want to delete your account? This is irreversible'),delroute()")}}
+            </div>
+        </form>
+
+        {% if delform.delpassword.errors %}
+        <ul class="errors">
+            {% for error in delform.delpassword.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+
+    <section class="overlay"></section>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>

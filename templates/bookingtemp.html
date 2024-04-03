@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{%import "bootstrap/wtf.html" as wtf%}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Book Room {{ room.number }}</title>
+</head>
+
+<body>
+    <div id="scrollTop" onclick='scrollToTop()'>
+        <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <div class="navcontainer">
+        <nav>
+            <div class="nav-logo" onclick="homeRedir()">
+                <i class="ri-database-2-fill"></i>
+                <h2 id="rbac">RBAC</h2>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-dashboard-line"></i>
+                            <span class="link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/booking" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-calendar-line"></i>
+                            <span class="link">Book Now</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mybookings" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-user-line"></i>
+                            <span class="link">My Bookings</span>
+                        </a>
+                    </li>
+                    <div class="bottomitems">
+                        <li>
+                            <a href="/settings" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-settings-5-line"></i>
+                                <span class="link">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-logout-box-line"></i>
+                                <span class="link">Logout</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="nav-close" id="nav-close" onclick="hideNav()">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle" onclick="showNav()">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </div>
+
+    <div class="bookingheader">
+        <h1>Room {{ room.number }}</h1>
+        <p>Location: {{ room.location }}</p>
+        <p>Number of Desks: {{ room.desks }}</p>
+        <p>Type: {{ room.type }}</p>
+    </div>
+
+    <div class="bookingcont" id="form-container">
+        <form class="bookingform" id="bookingform" method="POST">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.date) }}
+            <p>Time Slots Available On {{ form.date.data }}:</p>
+            {{ wtf.form_field(form.slot1) }} 
+            {{ wtf.form_field(form.slot2) }} 
+            {{ wtf.form_field(form.slot3) }} 
+            {{ wtf.form_field(form.slot4) }} 
+            {{ wtf.form_field(form.slot5) }} 
+            {{ wtf.form_field(form.slot6) }} 
+            {{ wtf.form_field(form.submit) }} 
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for msg in messages %}
+        <p class="flashedmsg">{{ msg }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <section class="overlay"></section>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <script>
+        
+        function dateChange() {
+            var selectedDate = document.getElementById('date').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open('POST', '/updateForm', true)
+            xhttp.setRequestHeader('Content-Type', 'application/json')
+            xhttp.onload = function () {
+                if (xhttp.status === 200) {
+                    var response = JSON.parse(xhttp.responseText);
+                    document.getElementById('bookingform').innerHTML = response.form_html;
+                    document.getElementById('date').addEventListener('change', dateChange)
+                    localStorage.setItem('selectedDate', selectedDate)
+                }
+            };
+            xhttp.send(JSON.stringify({date: selectedDate}))
+        }
+        document.getElementById('date').addEventListener('change', dateChange)
+
+        window.onload = function() {
+            var storedDate = localStorage.getItem('selectedDate')
+            if (storedDate) {
+                document.getElementById('date').value = storedDate
+            }
+            document.getElementById('date').addEventListener('change', dateChange)
+
+            if (storedDate) {
+               dateChange()
+            }
+        };
+
+        function checkboxStyles() {
+        var checkboxes = document.querySelectorAll('.checkbox label')
+        checkboxes.forEach(function(checkbox) {
+           if (checkbox.textContent.trim() !== '') { 
+              checkbox.classList.add('labelclass');
+              checkbox.style.display = 'inline-block';
+              checkbox.style.padding = '10px 20px';
+              checkbox.style.width = '300px';
+              checkbox.style.cursor = 'pointer';
+              checkbox.style.borderRadius = '20px';
+              checkbox.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.15)'
+              var input = checkbox.querySelector('input');
+              input.classList.add('input');
+
+              input.addEventListener('change', function() {
+                checkboxes.forEach(function(label) {
+                    if (label.classList.contains('checked')) {
+                        label.classList.remove('checked');
+                    }
+                });
+
+                var labels = checkbox;
+                if (input.checked) {
+                    labels.classList.add('checked');
+                } else {
+                    labels.classList.remove('checked');
+                }
+         });
+        }
+    });
+  }
+
+setInterval(checkboxStyles, 0.1);
+
+
+
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+{%import "bootstrap/wtf.html" as wtf%}
+<form class="bookingform" id="bookingform" method="POST">
+    {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.date) }}
+    <p>Time Slots Available On {{ form.date.data }}:</p>
+    {{ wtf.form_field(form.slot1) }} 
+    {{ wtf.form_field(form.slot2) }} 
+    {{ wtf.form_field(form.slot3) }} 
+    {{ wtf.form_field(form.slot4) }} 
+    {{ wtf.form_field(form.slot5) }} 
+    {{ wtf.form_field(form.slot6) }} 
+    {{ wtf.form_field(form.submit) }} 
+</form>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+<p class="flashedmsg">{{ msg }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}

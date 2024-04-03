@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Book Room P0.40</title>
+</head>
+
+<body>
+    <div id="scrollTop" onclick='scrollToTop()'>
+        <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <div class="navcontainer">
+        <nav>
+            <div class="nav-logo" onclick="homeRedir()">
+                <i class="ri-database-2-fill"></i>
+                <h2 id="rbac">RBAC</h2>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-dashboard-line"></i>
+                            <span class="link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/booking" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-calendar-line"></i>
+                            <span class="link">Book Now</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mybookings" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-user-line"></i>
+                            <span class="link">My Bookings</span>
+                        </a>
+                    </li>
+                    <div class="bottomitems">
+                        <li>
+                            <a href="/settings" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-settings-5-line"></i>
+                                <span class="link">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-logout-box-line"></i>
+                                <span class="link">Logout</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="nav-close" id="nav-close" onclick="hideNav()">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle" onclick="showNav()">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </div>
+
+    <div class="bookingheader">
+        <h1>Room P0.40</h1>
+        <p>Location: Performing Arts</p>
+        <p>Number of Desks: 2</p>
+        <p>Type: Music Room</p>
+    </div>
+
+    <div class="bookingcont" id="form-container">
+        <form class="bookingform" id="bookingform" method="POST">
+            <input id="csrf_token" name="csrf_token" type="hidden" value="ImIyYTM0ZWZkZDE1ZjhlMzc1ZmZkYzQ2ZjZjMTdhOTE4NGIwOTVhZGYi.Zfpx8g.z80hNWgPMACicM9dwTIjZ7Qk0mU">
+            
+
+
+
+
+
+
+<div class="form-group  required"><label class="control-label" for="date">Booking Date</label>
+        
+          <input class="form-control" id="date" max="2024-04-20" min="2024-03-20" name="date" required type="date" value="2024-03-20">
+        
+  </div>
+
+
+            <p>Time Slots Available On 2024-03-20:</p>
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot1" name="slot1" type="checkbox" value="y"> 9:00 AM - 10:00 AM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot2" name="slot2" type="checkbox" value="y"> 10:00 AM - 11:00 AM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot3" name="slot3" type="checkbox" value="y"> 11:00 AM - 12:00 PM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot4" name="slot4" type="checkbox" value="y"> 12:00 PM - 1:00 PM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot5" name="slot5" type="checkbox" value="y"> 1:00 PM - 2:00 PM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+
+    <div class="checkbox">
+      <label>
+        <input id="slot6" name="slot6" type="checkbox" value="y"> 2:00 PM - 3:00 PM
+      </label>
+    </div>
+  
+
+
+
+ 
+            
+
+
+
+
+
+  
+
+  
+  
+
+
+    <input class="btn btn-default" id="submit" name="submit" type="submit" value="Book">
+  
+
+
+
+ 
+        </form>
+        
+        
+        
+        <p class="flashedmsg">Booking Sucessful for Room P0.40 on 2024-03-30, Click <a href="/mybookings" class="alert-link">here</a> to view all your Bookings</p>
+        
+        
+        
+    </div>
+    <section class="overlay"></section>
+    <script type="text/javascript" src="/static/main.js"></script>
+    <script>
+        
+        function dateChange() {
+            var selectedDate = document.getElementById('date').value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open('POST', '/updateForm', true)
+            xhttp.setRequestHeader('Content-Type', 'application/json')
+            xhttp.onload = function () {
+                if (xhttp.status === 200) {
+                    var response = JSON.parse(xhttp.responseText);
+                    document.getElementById('bookingform').innerHTML = response.form_html;
+                    document.getElementById('date').addEventListener('change', dateChange)
+                    localStorage.setItem('selectedDate', selectedDate)
+                }
+            };
+            xhttp.send(JSON.stringify({date: selectedDate}))
+        }
+        document.getElementById('date').addEventListener('change', dateChange)
+
+        window.onload = function() {
+            var storedDate = localStorage.getItem('selectedDate')
+            if (storedDate) {
+                document.getElementById('date').value = storedDate
+            }
+            document.getElementById('date').addEventListener('change', dateChange)
+
+            if (storedDate) {
+               dateChange()
+            }
+        };
+
+        function checkboxStyles() {
+        var checkboxes = document.querySelectorAll('.checkbox label')
+        checkboxes.forEach(function(checkbox) {
+           if (checkbox.textContent.trim() !== '') { 
+              checkbox.classList.add('labelclass');
+              checkbox.style.display = 'inline-block';
+              checkbox.style.padding = '10px 20px';
+              checkbox.style.width = '300px';
+              checkbox.style.cursor = 'pointer';
+              checkbox.style.borderRadius = '20px';
+              checkbox.style.boxShadow = '0 3px 10px rgb(0 0 0 / 0.15)'
+              var input = checkbox.querySelector('input');
+              input.classList.add('input');
+
+              input.addEventListener('change', function() {
+                checkboxes.forEach(function(label) {
+                    if (label.classList.contains('checked')) {
+                        label.classList.remove('checked');
+                    }
+                });
+
+                var labels = checkbox;
+                if (input.checked) {
+                    labels.classList.add('checked');
+                } else {
+                    labels.classList.remove('checked');
+                }
+         });
+        }
+    });
+  }
+
+setInterval(checkboxStyles, 0.1);
+
+
+
+    </script>
+    
+</body>
+
+</html>

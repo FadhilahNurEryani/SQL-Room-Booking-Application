@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Booking</title>
+</head>
+
+
+<body>
+    <div id="scrollTop" onclick='scrollToTop()'>
+        <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <div class="navcontainer">
+
+        <nav>
+            <div class="nav-logo" onclick="homeRedir()">
+                <i class="ri-database-2-fill"></i>
+                <h2 id="rbac">RBAC</h2>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-dashboard-line"></i>
+                            <span class="link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/booking" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-calendar-line"></i>
+                            <span class="link">Book Now</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mybookings" class="nav-link" data-inViewport='slideRight'>
+                            <i class="ri-user-line"></i>
+                            <span class="link">My Bookings</span>
+                        </a>
+                    </li>
+                    <div class="bottomitems">
+                        <li>
+                            <a href="/settings" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-settings-5-line"></i>
+                                <span class="link">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="nav-link" data-inViewport='slideRight'>
+                                <i class="ri-logout-box-line"></i>
+                                <span class="link">Logout</span>
+                            </a>
+                        </li>
+                    </div>
+                </ul>
+
+                <div class="nav-close" id="nav-close" onclick="hideNav()">
+                    <i class="ri-close-line"></i>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle" onclick="showNav()">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </div>
+
+    <div class="home">
+        <form class="locations" method="GET" action="/booking">
+            <input type="radio" name="location" value="Green Hub" id="green" onchange="submitForm()" {% if
+                selectedloc=='Green Hub' %} checked {% endif %} />
+            <label for="green">
+                Green Hub
+            </label>
+
+            <input type="radio" name="location" value="Blue Hub" id="blue" onchange="submitForm()" {% if
+                selectedloc=='Blue Hub' %} checked {% endif %} />
+            <label for="blue">
+                Blue Hub
+            </label>
+
+            <input type="radio" name="location" value="Orange Hub" id="orange" onchange="submitForm()" {% if
+                selectedloc=='Orange Hub' %} checked {% endif %} />
+            <label for="orange">
+                Orange Hub
+            </label>
+
+            <input type="radio" name="location" value="" id="all" onchange="submitForm()" {% if selectedloc=='' %}
+                checked {% endif %} />
+            <label for="all">
+                All
+            </label>
+
+            <input type="radio" name="location" value="Library" id="library" onchange="submitForm()" {% if
+                selectedloc=='Library' %} checked {% endif %} />
+            <label for="library">
+                Library
+            </label>
+
+            <input type="radio" name="location" value="Performing Arts" id="performing-arts" onchange="submitForm()"
+                {%if selectedloc=='Performing Arts' %} checked {% endif %} />
+            <label for="performing-arts">
+                Performing Arts
+            </label>
+
+            <input type="radio" name="location" value="Visual Arts" id="visual-arts" onchange="submitForm()" {% if
+                selectedloc=='Visual Arts' %} checked {% endif %} />
+            <label for="visual-arts">
+                Visual Arts
+            </label>
+        </form>
+    </div>
+
+    <div class="rooms">
+        <section class="tablefilters">
+            <div id="search-container">
+                <form id="search-form" action="/booking" method="GET">
+                    <i class="ri-search-2-line"></i>
+                    <input id="searchbar" type="text" name="query" placeholder="Search..">
+                </form>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for msg in messages %}
+                <p id="searchmsg">{{ msg }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+        </section>
+
+        <div class="tablecontainter">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="tableloc">Location</th>
+                        <th>Number</th>
+                        <th id="desksort">
+                            <a
+                                href="{{ url_for('booking', desksort='desc' if desksort != 'desc' else 'asc', location=selectedloc, query=searchquery) }}">
+                                Desks
+                                {% if desksort == 'desc' %}
+                                <i class="ri-arrow-down-fill"></i>
+                                {% else %}
+                                <i class="ri-arrow-up-fill"></i>
+                                {% endif %}
+                            </a>
+                        </th>
+                        <th>Type</th>
+                        <th>Can I Book</th>
+                        <th id="tabletype">Book Now</th>
+                    </tr>
+                </thead>
+                {% for rooms in room %}
+                <tr>
+                    <td>
+                        {% if rooms.location == 'Blue Hub' %}
+                        <p style="color: #0065b9;">Blue Hub</p>
+                        {% elif rooms.location == 'Green Hub' %}
+                        <p style="color: green;">Green Hub</p>
+                        {% elif rooms.location == 'Orange Hub' %}
+                        <p style="color: orange;">Orange Hub</p>
+                        {% elif rooms.location == 'Library' %}
+                        <p style="color: red;">Library</p>
+                        {% elif rooms.location == 'Performing Arts' %}
+                        <p style="color: rgb(170, 73, 170);">Performing Arts</p>
+                        {% elif rooms.location == 'Visual Arts' %}
+                        <p style="color: rgb(7, 151, 199);">Visual Arts</p>
+                        {% endif %}
+                    </td>
+                    <td>{{ rooms.number }}</td>
+                    <td>{{ rooms.desks }}</td>
+                    <td>{{ rooms.type }}</td>
+                    <td>
+                        {% if current_user.role == 'Student' %}
+                        {% if rooms.auth == 0 %}
+                        <i class="ri-check-line"></i>
+                        {% elif rooms.auth == 1 %}
+                        <i class="ri-close-line"></i>
+                        {% endif %}
+                        {% else %}
+                        <i class="ri-check-line"></i>
+                        {% endif %}
+                    </td>
+                    <td id="bookbutton"><a href="{{ url_for('book_room', roomnum=rooms.number) }}">Book Now</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <section class="overlay"></section>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <script>
+        // Searchbar Appear Onload
+
+        window.addEventListener('load', function () {
+            showSearch();
+        });
+
+        let searchbar = document.getElementById('searchbar');
+        let searchcontainer = document.getElementById('search-container')
+        let searchmsg = document.getElementById('searchmsg')
+        let placeholderTexts = ['Try Searching For "Open Classroom"', 'Try Searching For "H1.41"', 'Try Searching For "20 Desks"', 'Try Searching For "Blue Hub"'];
+
+        function showSearch() {
+            var randomIndex = Math.floor(Math.random() * placeholderTexts.length);
+            searchbar.placeholder = placeholderTexts[randomIndex];
+
+            if (placeholderTexts[randomIndex].includes("Open Classroom")) {
+                searchcontainer.style.left = "50%";
+            } else {
+                searchcontainer.style.left = "55%"
+            }
+        }
+    </script>
+</body>
+
+</html>

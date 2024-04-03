@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{%import "bootstrap/wtf.html" as wtf%}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Register</title>
+    <style>
+        .form-group {
+            margin-bottom: 7px;
+        }
+        .login{
+            padding-bottom: 25px;
+        }
+    </style>
+</head>
+
+<div class="navcontainer">
+    <nav>
+        <div class="nav-logo" onclick="homeRedir()">
+            <i class="ri-database-2-fill"></i>
+            <h2 id="rbac">RBAC</h2>
+        </div>
+</div>
+
+
+<body>
+    <div id="scrollTop" onclick='scrollToTop()'>
+        <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <div class="login">
+        <form class="loginform" method="POST" action="/register">
+            <h1>Register</h1>
+            {{form.hidden_tag()}}
+            {{wtf.form_field(form.username)}}
+            {{wtf.form_field(form.password)}}
+            {{wtf.form_field(form.confirm)}}
+            {{wtf.form_field(form.dob)}}
+            {{wtf.form_field(form.role)}}
+            <button class="signin">Register<i class="ri-arrow-right-line"></i></button>
+        </form>
+        <span>Already have an account? <a href="/login">Login</a></span>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
