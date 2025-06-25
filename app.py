@@ -27,7 +27,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login dulu'
+login_manager.login_view = 'login dulu kak'
 search = Search()
 search = Search(db=db)
 search.init_app(app)
