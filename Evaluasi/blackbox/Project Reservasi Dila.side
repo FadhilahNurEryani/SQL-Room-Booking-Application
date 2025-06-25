@@ -1,0 +1,83 @@
+-{
+  "id": "b24d5955-f554-499a-9df2-b930e26453a8",
+  "version": "2.0",
+  "name": "Project Reservasi Dila",
+  "url": "https://friendly-sniffle-5g4v4j5xr6463pv69-5000.app.github.dev",
+  "tests": [{
+    "id": "30320dd1-3951-483b-a655-cdfe23629fcb",
+    "name": "ai",
+    "commands": [{
+      "id": "8beca2da-89d8-4078-a065-d764c19baad2",
+      "comment": "",
+      "command": "open",
+      "target": "/login?next=%2F",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3543b1a8-ffce-4666-955b-31ca587694a3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1272x672",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ca8edbf-b1ea-4f12-aaac-d8042788636b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ri-eye-off-line",
+      "targets": [
+        ["css=.ri-eye-off-line", "css:finder"],
+        ["xpath=//div[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aeb7c312-f6df-4d64-a9fc-98abc573c821",
+      "comment": "",
+      "command": "click",
+      "target": "id=remember",
+      "targets": [
+        ["id=remember", "id"],
+        ["name=remember", "name"],
+        ["css=#remember", "css:finder"],
+        ["xpath=//input[@id='remember']", "xpath:attributes"],
+        ["xpath=//label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d1ebc1a-f18b-485e-b631-ebd6bf7787e0",
+      "comment": "",
+      "command": "click",
+      "target": "id=remember",
+      "targets": [
+        ["id=remember", "id"],
+        ["name=remember", "name"],
+        ["css=#remember", "css:finder"],
+        ["xpath=//input[@id='remember']", "xpath:attributes"],
+        ["xpath=//label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b0f8a9c-b2a6-48a9-9efb-3c01322b241f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.signin",
+      "targets": [
+        ["css=.signin", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "d383eadb-b8cc-49cd-9415-3cb39506459f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["30320dd1-3951-483b-a655-cdfe23629fcb"]
+  }],
+  "urls": ["https://friendly-sniffle-5g4v4j5xr6463pv69-5000.app.github.dev/"],
+  "plugins": []
+}

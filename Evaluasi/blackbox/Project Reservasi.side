@@ -1,0 +1,391 @@
+{
+  "id": "dcdaefcd-940b-45d6-b909-07be9a7e21f6",
+  "version": "2.0",
+  "name": "Project Reservasi",
+  "url": "https://friendly-sniffle-5g4v4j5xr6463pv69-5000.app.github.dev",
+  "tests": [{
+    "id": "279e1d6b-6fdc-4859-9238-7981ac5eea3b",
+    "name": "Ayooo",
+    "commands": [{
+      "id": "e78978a3-c2d0-4364-b382-1c213391c16b",
+      "comment": "",
+      "command": "open",
+      "target": "/login?next=%2F",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c63079db-4e31-4184-be69-7dea7ff12f49",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1295x687",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e7ec0843-0f65-4967-983d-a0018ed84745",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Continue')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "915237cd-89b2-4b99-a26f-9d6638988fa1",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d281f17b-8a70-4815-a81d-9bd8fa9e7b4e",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Fadhilah "
+    }, {
+      "id": "5467b4fa-0026-46b1-a816-ca50aca6b1ff",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7d8cde7-a1a7-4116-a444-60f9b1ebaa49",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Fadhilah Nur123"
+    }, {
+      "id": "0db5b873-ac56-420d-b669-eac73790869e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Register",
+      "targets": [
+        ["linkText=Register", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'Register')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c4a2cab-7135-40cc-8855-1bab23b490cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login",
+      "targets": [
+        ["css=.login", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab7c8b70-fb52-4639-8b1b-d41e116e0398",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14cf2860-5faa-45da-aae2-d8f094be5b96",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Fadhilah"
+    }, {
+      "id": "357836aa-3181-4546-aa58-35c28ef6393c",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fd57d10-6fcd-48d1-a728-428566a1ab06",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Passworddila"
+    }, {
+      "id": "ac1c99b3-46f1-47d1-b964-a02ac1a7b709",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirm",
+      "targets": [
+        ["id=confirm", "id"],
+        ["name=confirm", "name"],
+        ["css=#confirm", "css:finder"],
+        ["xpath=//input[@id='confirm']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71833d6a-db8d-4fa6-9776-5749008fcfa5",
+      "comment": "",
+      "command": "type",
+      "target": "id=confirm",
+      "targets": [
+        ["id=confirm", "id"],
+        ["name=confirm", "name"],
+        ["css=#confirm", "css:finder"],
+        ["xpath=//input[@id='confirm']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "passworddila"
+    }, {
+      "id": "bb0af869-a309-43bd-ada7-95d4eb97b6c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=dob",
+      "targets": [
+        ["id=dob", "id"],
+        ["name=dob", "name"],
+        ["css=#dob", "css:finder"],
+        ["xpath=//input[@id='dob']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "337bdfe1-469f-44fd-82d0-518325a8e2d8",
+      "comment": "",
+      "command": "type",
+      "target": "id=dob",
+      "targets": [
+        ["id=dob", "id"],
+        ["name=dob", "name"],
+        ["css=#dob", "css:finder"],
+        ["xpath=//input[@id='dob']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "2010-06-01"
+    }, {
+      "id": "439d7469-95d4-44d5-876f-b2ea2a35e39f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.signin",
+      "targets": [
+        ["css=.signin", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "371b52f2-0c97-4e6f-9614-e0f1eba5e767",
+      "comment": "",
+      "command": "click",
+      "target": "css=.signin",
+      "targets": [
+        ["css=.signin", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f50db4cd-6a8d-410b-8557-1f2da2cfe8ec",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6d35cdd-a66a-4c4b-b973-a91d396062d1",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "pasworddila"
+    }, {
+      "id": "fa539423-7f72-4dcf-8116-ee2d9f32e407",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirm",
+      "targets": [
+        ["id=confirm", "id"],
+        ["name=confirm", "name"],
+        ["css=#confirm", "css:finder"],
+        ["xpath=//input[@id='confirm']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a061342-d58a-4575-90bd-2532e1da08bc",
+      "comment": "",
+      "command": "type",
+      "target": "id=confirm",
+      "targets": [
+        ["id=confirm", "id"],
+        ["name=confirm", "name"],
+        ["css=#confirm", "css:finder"],
+        ["xpath=//input[@id='confirm']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "pasworddila"
+    }, {
+      "id": "92bd57a8-a09f-465e-beef-ffc033a4709c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.signin",
+      "targets": [
+        ["css=.signin", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Register')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6344e3ba-6083-4053-9569-ef03fb9383ec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=here",
+      "targets": [
+        ["linkText=here", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'here')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/booking')])[2]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'here')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce5beb99-fbdd-40ac-918f-1655916c4750",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(9) a",
+      "targets": [
+        ["css=tr:nth-child(9) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Book Now')])[9]", "xpath:link"],
+        ["xpath=(//td[@id='bookbutton']/a)[9]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/rooms/L1.20')]", "xpath:href"],
+        ["xpath=//tr[9]/td[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16f6eb19-624b-4bf9-83c1-7256dd9693ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.checkbox:nth-child(4) > .labelclass",
+      "targets": [
+        ["css=.checkbox:nth-child(4) > .labelclass", "css:finder"],
+        ["xpath=//form[@id='bookingform']/div[2]/label", "xpath:idRelative"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'9:00 AM - 10:00 AM')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dba9f1c5-9c87-469b-bb64-27421607c1a3",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='bookingform']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "366c2d8e-a849-431c-9806-f986244b28d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.checkbox:nth-child(5) > .labelclass",
+      "targets": [
+        ["css=.checkbox:nth-child(5) > .labelclass", "css:finder"],
+        ["xpath=//form[@id='bookingform']/div[3]/label", "xpath:idRelative"],
+        ["xpath=//div[3]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'10:00 AM - 11:00 AM')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7edfdebf-05f0-4e9b-920d-6056748e758a",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='bookingform']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7c02c330-fa64-4bd5-afbd-d1530ee0fe7f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["279e1d6b-6fdc-4859-9238-7981ac5eea3b"]
+  }],
+  "urls": ["https://friendly-sniffle-5g4v4j5xr6463pv69-5000.app.github.dev/"],
+  "plugins": []
+}
